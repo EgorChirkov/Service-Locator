@@ -7,18 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		74A4FF3E29213B2600031475 /* Configurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4FF3D29213B2600031475 /* Configurator.swift */; };
+		74A4FF4029213F2700031475 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74A4FF3F29213F2700031475 /* NetworkService.swift */; };
 		74F696ED291543B1007C9934 /* Service_LocatorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F696EC291543B1007C9934 /* Service_LocatorApp.swift */; };
-		74F696EF291543B1007C9934 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F696EE291543B1007C9934 /* ContentView.swift */; };
 		74F696F1291543B2007C9934 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F696F0291543B2007C9934 /* Assets.xcassets */; };
 		74F696F4291543B2007C9934 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74F696F3291543B2007C9934 /* Preview Assets.xcassets */; };
+		74F6970129157C4D007C9934 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970029157C4D007C9934 /* MainViewModel.swift */; };
+		74F6970329157C5C007C9934 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970229157C5C007C9934 /* MainView.swift */; };
+		74F6970829157D44007C9934 /* SampleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970729157D44007C9934 /* SampleRowView.swift */; };
+		74F6970D29157FCA007C9934 /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970C29157FCA007C9934 /* ListView.swift */; };
+		74F6970F29157FD6007C9934 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970E29157FD6007C9934 /* ListViewModel.swift */; };
+		74F697112915829A007C9934 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F697102915829A007C9934 /* Injected.swift */; };
+		74F697152915861F007C9934 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F697142915861F007C9934 /* ServiceLocator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		74A4FF3D29213B2600031475 /* Configurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configurator.swift; sourceTree = "<group>"; };
+		74A4FF3F29213F2700031475 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		74F696E9291543B1007C9934 /* Service Locator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Service Locator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		74F696EC291543B1007C9934 /* Service_LocatorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LocatorApp.swift; sourceTree = "<group>"; };
-		74F696EE291543B1007C9934 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		74F696F0291543B2007C9934 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74F696F3291543B2007C9934 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		74F6970029157C4D007C9934 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		74F6970229157C5C007C9934 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		74F6970729157D44007C9934 /* SampleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRowView.swift; sourceTree = "<group>"; };
+		74F6970C29157FCA007C9934 /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		74F6970E29157FD6007C9934 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		74F697102915829A007C9934 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
+		74F697142915861F007C9934 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +48,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		742915AD2922D6E300FD4E05 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				742915AE2922D6FE00FD4E05 /* Services */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		742915AE2922D6FE00FD4E05 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				742915AF2922D70700FD4E05 /* Network */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		742915AF2922D70700FD4E05 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				74A4FF3F29213F2700031475 /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		742915B22922D7AB00FD4E05 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				74F697142915861F007C9934 /* ServiceLocator.swift */,
+				74A4FF3D29213B2600031475 /* Configurator.swift */,
+				74F697102915829A007C9934 /* Injected.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
 		74F696E0291543B1007C9934 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +101,10 @@
 		74F696EB291543B1007C9934 /* Service Locator */ = {
 			isa = PBXGroup;
 			children = (
+				742915B22922D7AB00FD4E05 /* Core */,
+				742915AD2922D6E300FD4E05 /* Application */,
+				74F696FC29157BC9007C9934 /* MVVM */,
 				74F696EC291543B1007C9934 /* Service_LocatorApp.swift */,
-				74F696EE291543B1007C9934 /* ContentView.swift */,
 				74F696F0291543B2007C9934 /* Assets.xcassets */,
 				74F696F2291543B2007C9934 /* Preview Content */,
 			);
@@ -65,6 +117,74 @@
 				74F696F3291543B2007C9934 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		74F696FC29157BC9007C9934 /* MVVM */ = {
+			isa = PBXGroup;
+			children = (
+				74F696FD29157BD5007C9934 /* Main */,
+				74F6970929157FA2007C9934 /* List */,
+			);
+			path = MVVM;
+			sourceTree = "<group>";
+		};
+		74F696FD29157BD5007C9934 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				74F696FF29157BE9007C9934 /* ViewModel */,
+				74F696FE29157BE1007C9934 /* View */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		74F696FE29157BE1007C9934 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970229157C5C007C9934 /* MainView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74F696FF29157BE9007C9934 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970029157C4D007C9934 /* MainViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		74F6970429157C6E007C9934 /* Row */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970729157D44007C9934 /* SampleRowView.swift */,
+			);
+			path = Row;
+			sourceTree = "<group>";
+		};
+		74F6970929157FA2007C9934 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970B29157FBA007C9934 /* ViewModel */,
+				74F6970A29157FB2007C9934 /* View */,
+				74F6970429157C6E007C9934 /* Row */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		74F6970A29157FB2007C9934 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970C29157FCA007C9934 /* ListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		74F6970B29157FBA007C9934 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970E29157FD6007C9934 /* ListViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +257,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74F696EF291543B1007C9934 /* ContentView.swift in Sources */,
+				74A4FF4029213F2700031475 /* NetworkService.swift in Sources */,
+				74F697152915861F007C9934 /* ServiceLocator.swift in Sources */,
+				74A4FF3E29213B2600031475 /* Configurator.swift in Sources */,
+				74F6970329157C5C007C9934 /* MainView.swift in Sources */,
+				74F6970F29157FD6007C9934 /* ListViewModel.swift in Sources */,
+				74F697112915829A007C9934 /* Injected.swift in Sources */,
+				74F6970D29157FCA007C9934 /* ListView.swift in Sources */,
+				74F6970829157D44007C9934 /* SampleRowView.swift in Sources */,
 				74F696ED291543B1007C9934 /* Service_LocatorApp.swift in Sources */,
+				74F6970129157C4D007C9934 /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +401,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -282,9 +411,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evc.hw.Service-Locator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -302,8 +434,9 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -311,9 +444,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.evc.hw.Service-Locator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
