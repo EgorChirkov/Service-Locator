@@ -17,11 +17,17 @@ struct MainView: View {
             ListView()
                 .tabItem{
                     Image(systemName: "house.fill")
-                    Text("Home")
+                    Text(viewModel.localized.txtHome)
                 }
                 .tag(0)
+            
+            SettingsView()
+                .tabItem{
+                    Image(systemName: "gearshape.fill")
+                    Text(viewModel.localized.txtSettings)
+                }
+                .tag(1)
         }
-        
     }
 }
 

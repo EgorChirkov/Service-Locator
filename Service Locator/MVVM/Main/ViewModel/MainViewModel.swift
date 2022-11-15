@@ -11,4 +11,10 @@ class MainViewModel: ObservableObject{
     
     @Published var selection: Int = 0
     
+    let localized: Localized = .init()
+    
+    struct Localized{
+        let txtHome: String = "Home"
+        let txtSettings: String = "Settings"
+    }
 }

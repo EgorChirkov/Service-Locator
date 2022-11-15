@@ -19,6 +19,12 @@
 		74F6970F29157FD6007C9934 /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F6970E29157FD6007C9934 /* ListViewModel.swift */; };
 		74F697112915829A007C9934 /* Injected.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F697102915829A007C9934 /* Injected.swift */; };
 		74F697152915861F007C9934 /* ServiceLocator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F697142915861F007C9934 /* ServiceLocator.swift */; };
+		FCDD13822923748D00A99272 /* SampleRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13812923748D00A99272 /* SampleRowViewModel.swift */; };
+		FCDD13852923754900A99272 /* SampleRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13842923754900A99272 /* SampleRowItem.swift */; };
+		FCDD138A292380E200A99272 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD1389292380E200A99272 /* SettingsView.swift */; };
+		FCDD138C292380F500A99272 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD138B292380F500A99272 /* SettingsViewModel.swift */; };
+		FCDD1390292389B900A99272 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD138F292389B900A99272 /* View+Extension.swift */; };
+		FCDD13932923921E00A99272 /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13922923921E00A99272 /* UserSettingsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +41,12 @@
 		74F6970E29157FD6007C9934 /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		74F697102915829A007C9934 /* Injected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injected.swift; sourceTree = "<group>"; };
 		74F697142915861F007C9934 /* ServiceLocator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLocator.swift; sourceTree = "<group>"; };
+		FCDD13812923748D00A99272 /* SampleRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRowViewModel.swift; sourceTree = "<group>"; };
+		FCDD13842923754900A99272 /* SampleRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRowItem.swift; sourceTree = "<group>"; };
+		FCDD1389292380E200A99272 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FCDD138B292380F500A99272 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		FCDD138F292389B900A99272 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		FCDD13922923921E00A99272 /* UserSettingsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +63,7 @@
 		742915AD2922D6E300FD4E05 /* Application */ = {
 			isa = PBXGroup;
 			children = (
+				FCDD138E2923899600A99272 /* Extensions */,
 				742915AE2922D6FE00FD4E05 /* Services */,
 			);
 			path = Application;
@@ -59,6 +72,7 @@
 		742915AE2922D6FE00FD4E05 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				FCDD1391292391BC00A99272 /* UserSettings */,
 				742915AF2922D70700FD4E05 /* Network */,
 			);
 			path = Services;
@@ -72,14 +86,14 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		742915B22922D7AB00FD4E05 /* Core */ = {
+		742915B22922D7AB00FD4E05 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
 				74F697142915861F007C9934 /* ServiceLocator.swift */,
 				74A4FF3D29213B2600031475 /* Configurator.swift */,
 				74F697102915829A007C9934 /* Injected.swift */,
 			);
-			path = Core;
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 		74F696E0291543B1007C9934 = {
@@ -101,8 +115,8 @@
 		74F696EB291543B1007C9934 /* Service Locator */ = {
 			isa = PBXGroup;
 			children = (
-				742915B22922D7AB00FD4E05 /* Core */,
 				742915AD2922D6E300FD4E05 /* Application */,
+				742915B22922D7AB00FD4E05 /* Configuration */,
 				74F696FC29157BC9007C9934 /* MVVM */,
 				74F696EC291543B1007C9934 /* Service_LocatorApp.swift */,
 				74F696F0291543B2007C9934 /* Assets.xcassets */,
@@ -124,6 +138,7 @@
 			children = (
 				74F696FD29157BD5007C9934 /* Main */,
 				74F6970929157FA2007C9934 /* List */,
+				FCDD1386292380C000A99272 /* Settings */,
 			);
 			path = MVVM;
 			sourceTree = "<group>";
@@ -156,7 +171,9 @@
 		74F6970429157C6E007C9934 /* Row */ = {
 			isa = PBXGroup;
 			children = (
-				74F6970729157D44007C9934 /* SampleRowView.swift */,
+				FCDD13832923753E00A99272 /* Model */,
+				FCDD13802923745A00A99272 /* ViewModel */,
+				FCDD137F2923745600A99272 /* View */,
 			);
 			path = Row;
 			sourceTree = "<group>";
@@ -185,6 +202,71 @@
 				74F6970E29157FD6007C9934 /* ListViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FCDD137F2923745600A99272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				74F6970729157D44007C9934 /* SampleRowView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCDD13802923745A00A99272 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD13812923748D00A99272 /* SampleRowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FCDD13832923753E00A99272 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD13842923754900A99272 /* SampleRowItem.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FCDD1386292380C000A99272 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD1388292380D100A99272 /* ViewModel */,
+				FCDD1387292380CA00A99272 /* View */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FCDD1387292380CA00A99272 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD1389292380E200A99272 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FCDD1388292380D100A99272 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD138B292380F500A99272 /* SettingsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FCDD138E2923899600A99272 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD138F292389B900A99272 /* View+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FCDD1391292391BC00A99272 /* UserSettings */ = {
+			isa = PBXGroup;
+			children = (
+				FCDD13922923921E00A99272 /* UserSettingsService.swift */,
+			);
+			path = UserSettings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,14 +341,20 @@
 			files = (
 				74A4FF4029213F2700031475 /* NetworkService.swift in Sources */,
 				74F697152915861F007C9934 /* ServiceLocator.swift in Sources */,
+				FCDD13822923748D00A99272 /* SampleRowViewModel.swift in Sources */,
 				74A4FF3E29213B2600031475 /* Configurator.swift in Sources */,
 				74F6970329157C5C007C9934 /* MainView.swift in Sources */,
+				FCDD13932923921E00A99272 /* UserSettingsService.swift in Sources */,
 				74F6970F29157FD6007C9934 /* ListViewModel.swift in Sources */,
+				FCDD13852923754900A99272 /* SampleRowItem.swift in Sources */,
+				FCDD1390292389B900A99272 /* View+Extension.swift in Sources */,
 				74F697112915829A007C9934 /* Injected.swift in Sources */,
 				74F6970D29157FCA007C9934 /* ListView.swift in Sources */,
 				74F6970829157D44007C9934 /* SampleRowView.swift in Sources */,
 				74F696ED291543B1007C9934 /* Service_LocatorApp.swift in Sources */,
 				74F6970129157C4D007C9934 /* MainViewModel.swift in Sources */,
+				FCDD138A292380E200A99272 /* SettingsView.swift in Sources */,
+				FCDD138C292380F500A99272 /* SettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

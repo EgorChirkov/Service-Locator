@@ -11,16 +11,24 @@ class ListViewModel: ObservableObject{
     
     @Injected var network: NetworkService?
     
+    @Injected var userSettings: UserSettingsService?
+    
     @Published var isLoading: Bool = true
     
     @Published private(set) var facts: [String] = []
     
-    init(network: NetworkService? = nil) {
+    let localized: Localized = .init()
+    
+    init(network: NetworkService? = nil, userSettings: UserSettingsService? = nil) {
         self.network = network
+        self.userSettings = userSettings
     }
     
     func fetchData(){
-        network?.requestData(with: 5) { response, errorMsg in
+        
+        let count = userSettings?.valueInt(for: .countFacts) ?? 1
+        
+        network?.requestData(with: count) { response, errorMsg in
             
             DispatchQueue.main.async {
                 self.isLoading = false
@@ -29,8 +37,19 @@ class ListViewModel: ObservableObject{
                     return
                 }
                 
+                self.facts.removeAll()
+                
                 self.facts.append(contentsOf: response.data)
             }
         }
+    }
+    
+    func index(for fact: String) -> Int?{
+        facts.firstIndex(of: fact)
+    }
+    
+    struct Localized{
+        let txtLoading: String = "loading.."
+        let txtTitle: String = "Cat Facts"
     }
 }

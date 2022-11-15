@@ -8,9 +8,7 @@
 import Foundation
 
 struct ResponseCatFacts: Decodable{
-
     var data: [String]
-    
 }
 
 class NetworkService {
