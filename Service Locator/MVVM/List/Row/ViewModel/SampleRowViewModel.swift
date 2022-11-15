@@ -10,7 +10,7 @@ import UniformTypeIdentifiers
 
 class SampleRowViewModel: ObservableObject{
     
-    @Published var item: SampleRowItem? = nil
+    @Published var item: ListRowItem? = nil
     
     @Published var isShowAlert: Bool = false
     
@@ -24,7 +24,7 @@ class SampleRowViewModel: ObservableObject{
     }
     
     private var index: Int?{
-        guard let index = item?.index else {
+        guard let index = item?.id else {
             return nil
         }
         return index
@@ -37,7 +37,7 @@ class SampleRowViewModel: ObservableObject{
         return text
     }
     
-    func onAppear(item: SampleRowItem){
+    func onAppear(item: ListRowItem){
         self.item = item
     }
     

@@ -13,9 +13,13 @@ class ListViewModel: ObservableObject{
     
     @Injected var userSettings: UserSettingsService?
     
-    @Published var isLoading: Bool = true
+    @Published var isLoading: Bool = false
     
-    @Published private(set) var facts: [String] = []
+    @Published private(set) var listItems: [ListRowItem] = []{
+        didSet{
+            print(listItems.count)
+        }
+    }
     
     let localized: Localized = .init()
     
@@ -25,23 +29,21 @@ class ListViewModel: ObservableObject{
     }
     
     func onAppear(){
-        guard facts.isEmpty else {
-            return
-        }
-        
-        let localItems = Array(RealmModelManager.shared.fetchObjects(withType: CatFactRealmModel.self))
-        
-        guard !localItems.isEmpty else{
+        guard let isSaved = userSettings?.valueBool(for: .saveList), isSaved else {
             fetchData()
             return
         }
+
+        let localItems = Array(RealmModelManager.shared.fetchObjects(withType: CatFactRealmModel.self))
         
-        facts = localItems.map({ $0.fact })
+        listItems = localItems.map({ ListRowItem(id: $0.id, text: $0.fact) })
         
-        isLoading = false
+        listItems.sort(by: { $0.id < $1.id })
     }
     
-    func fetchData(){
+    private func fetchData(){
+        
+        isLoading.toggle()
         
         let count = userSettings?.valueInt(for: .countFacts) ?? 1
         
@@ -50,23 +52,25 @@ class ListViewModel: ObservableObject{
             DispatchQueue.main.async {
                 self.isLoading = false
                 
-                guard errorMsg == nil, let response = response else {
+                guard errorMsg == nil, let facts = response?.data else {
                     return
                 }
-                
-                self.facts.removeAll()
-                
-                self.facts.append(contentsOf: response.data)
-                
-                for fact in self.facts {
-                    CatFactRealmModel(id: 5, fact: fact).insert()
+                  
+                for fact in facts {
+                    self.listItems.append(ListRowItem(id: self.listItems.count, text: fact))
                 }
             }
         }
     }
     
-    func index(for fact: String) -> Int?{
-        facts.firstIndex(of: fact)
+    func onSaveList(){
+        guard let isSaved = userSettings?.valueBool(for: .saveList), !isSaved else {
+            return
+        }
+        for item in listItems {
+            CatFactRealmModel(id: item.id, fact: item.text).insert()
+        }
+        userSettings?.save(value: true, for: .saveList)
     }
     
     struct Localized{

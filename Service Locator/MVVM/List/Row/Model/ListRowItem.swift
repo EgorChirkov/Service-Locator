@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct SampleRowItem{
-    var index: Int? = nil
+struct ListRowItem{
+    let id: Int
     let text: String
     
-    static func testValue() -> SampleRowItem{
-        return SampleRowItem(index: 1,
+    static func testValue() -> ListRowItem{
+        return ListRowItem(id: 1,
                              text: "Text")
     }
 }

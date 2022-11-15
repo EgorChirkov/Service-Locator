@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SampleRowView: View {
     
-    let item: SampleRowItem
+    let item: ListRowItem
     
     @StateObject private var viewModel: SampleRowViewModel = .init()
     
@@ -31,6 +31,6 @@ struct SampleRowView: View {
 
 struct SampleRowView_Previews: PreviewProvider {
     static var previews: some View {
-        SampleRowView(item: SampleRowItem.testValue())
+        SampleRowView(item: ListRowItem.testValue())
     }
 }

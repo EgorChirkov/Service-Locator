@@ -20,14 +20,18 @@ struct ListView: View {
                         .scaleEffect(1.25)
                 case false:
                     List{
-                        ForEach(viewModel.facts, id: \.self){ text in
-                            SampleRowView(item: SampleRowItem(index: viewModel.index(for: text),
-                                                              text: text))
+                        ForEach(viewModel.listItems, id: \.id){ item in
+                            SampleRowView(item: item)
                         }
                     }
                 }
             }
             .navigationTitle(viewModel.localized.txtTitle)
+            .toolbar {
+                    Button("Save List") {
+                        viewModel.onSaveList()
+                    }
+                }
         }
         .onAppear{
             viewModel.onAppear()

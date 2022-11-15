@@ -24,7 +24,7 @@
 		FC4102212923C51B00EE2A3A /* CatFactReamModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4102202923C51B00EE2A3A /* CatFactReamModel.swift */; };
 		FC4102232923C6A300EE2A3A /* RealmModelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC4102222923C6A300EE2A3A /* RealmModelManager.swift */; };
 		FCDD13822923748D00A99272 /* SampleRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13812923748D00A99272 /* SampleRowViewModel.swift */; };
-		FCDD13852923754900A99272 /* SampleRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13842923754900A99272 /* SampleRowItem.swift */; };
+		FCDD13852923754900A99272 /* ListRowItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD13842923754900A99272 /* ListRowItem.swift */; };
 		FCDD138A292380E200A99272 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD1389292380E200A99272 /* SettingsView.swift */; };
 		FCDD138C292380F500A99272 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD138B292380F500A99272 /* SettingsViewModel.swift */; };
 		FCDD1390292389B900A99272 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCDD138F292389B900A99272 /* View+Extension.swift */; };
@@ -48,7 +48,7 @@
 		FC4102202923C51B00EE2A3A /* CatFactReamModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatFactReamModel.swift; sourceTree = "<group>"; };
 		FC4102222923C6A300EE2A3A /* RealmModelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmModelManager.swift; sourceTree = "<group>"; };
 		FCDD13812923748D00A99272 /* SampleRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRowViewModel.swift; sourceTree = "<group>"; };
-		FCDD13842923754900A99272 /* SampleRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleRowItem.swift; sourceTree = "<group>"; };
+		FCDD13842923754900A99272 /* ListRowItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowItem.swift; sourceTree = "<group>"; };
 		FCDD1389292380E200A99272 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		FCDD138B292380F500A99272 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		FCDD138F292389B900A99272 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		FCDD13832923753E00A99272 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				FCDD13842923754900A99272 /* SampleRowItem.swift */,
+				FCDD13842923754900A99272 /* ListRowItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -373,7 +373,7 @@
 				74F6970329157C5C007C9934 /* MainView.swift in Sources */,
 				FCDD13932923921E00A99272 /* UserSettingsService.swift in Sources */,
 				74F6970F29157FD6007C9934 /* ListViewModel.swift in Sources */,
-				FCDD13852923754900A99272 /* SampleRowItem.swift in Sources */,
+				FCDD13852923754900A99272 /* ListRowItem.swift in Sources */,
 				FCDD1390292389B900A99272 /* View+Extension.swift in Sources */,
 				74F697112915829A007C9934 /* Injected.swift in Sources */,
 				74F6970D29157FCA007C9934 /* ListView.swift in Sources */,
