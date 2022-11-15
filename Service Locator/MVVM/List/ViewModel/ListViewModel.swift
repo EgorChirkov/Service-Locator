@@ -24,6 +24,23 @@ class ListViewModel: ObservableObject{
         self.userSettings = userSettings
     }
     
+    func onAppear(){
+        guard facts.isEmpty else {
+            return
+        }
+        
+        let localItems = Array(RealmModelManager.shared.fetchObjects(withType: CatFactRealmModel.self))
+        
+        guard !localItems.isEmpty else{
+            fetchData()
+            return
+        }
+        
+        facts = localItems.map({ $0.fact })
+        
+        isLoading = false
+    }
+    
     func fetchData(){
         
         let count = userSettings?.valueInt(for: .countFacts) ?? 1
@@ -40,6 +57,10 @@ class ListViewModel: ObservableObject{
                 self.facts.removeAll()
                 
                 self.facts.append(contentsOf: response.data)
+                
+                for fact in self.facts {
+                    CatFactRealmModel(id: 5, fact: fact).insert()
+                }
             }
         }
     }

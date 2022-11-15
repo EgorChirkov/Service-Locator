@@ -12,6 +12,8 @@ struct Service_LocatorApp: App {
     
     init(){
         Configurator.shared.register()
+        
+        RealmModelManager.shared.realmConfiguration()
     }
     
     var body: some Scene {

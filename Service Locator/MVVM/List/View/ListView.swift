@@ -30,7 +30,7 @@ struct ListView: View {
             .navigationTitle(viewModel.localized.txtTitle)
         }
         .onAppear{
-            viewModel.fetchData()
+            viewModel.onAppear()
         }
     }
 }
