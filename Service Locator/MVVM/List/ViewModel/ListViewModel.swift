@@ -13,11 +13,13 @@ class ListViewModel: ObservableObject{
     
     @Injected var userSettings: UserSettingsService?
     
+    @Published var isSavedState: Bool = false
+    
     @Published var isLoading: Bool = false
     
     @Published private(set) var listItems: [ListRowItem] = []{
         didSet{
-            print(listItems.count)
+            debugPrint(listItems.count)
         }
     }
     
@@ -30,37 +32,16 @@ class ListViewModel: ObservableObject{
     
     func onAppear(){
         guard let isSaved = userSettings?.valueBool(for: .saveList), isSaved else {
-            fetchData()
             return
         }
-
+        
+        isSavedState = true
+        
         let localItems = Array(RealmModelManager.shared.fetchObjects(withType: CatFactRealmModel.self))
         
         listItems = localItems.map({ ListRowItem(id: $0.id, text: $0.fact) })
         
         listItems.sort(by: { $0.id < $1.id })
-    }
-    
-    private func fetchData(){
-        
-        isLoading.toggle()
-        
-        let count = userSettings?.valueInt(for: .countFacts) ?? 1
-        
-        network?.requestData(with: count) { response, errorMsg in
-            
-            DispatchQueue.main.async {
-                self.isLoading = false
-                
-                guard errorMsg == nil, let facts = response?.data else {
-                    return
-                }
-                  
-                for fact in facts {
-                    self.listItems.append(ListRowItem(id: self.listItems.count, text: fact))
-                }
-            }
-        }
     }
     
     func onSaveList(){
@@ -73,8 +54,34 @@ class ListViewModel: ObservableObject{
         userSettings?.save(value: true, for: .saveList)
     }
     
+//    func onClearAll(){
+//        listItems.removeAll()
+//    }
+    
     struct Localized{
         let txtLoading: String = "loading.."
         let txtTitle: String = "Cat Facts"
+    }
+}
+
+extension ListViewModel {
+    
+    @MainActor
+    func fetchData() async throws {
+        let count = userSettings?.valueInt(for: .countFacts) ?? 1
+        
+        isLoading = true
+        
+        defer {
+            isLoading = false
+        }
+        
+        let facts = try await network?.requestData(with: count)
+        
+        if let facts = facts{
+            for fact in facts{
+                listItems.append(ListRowItem(id: listItems.count, text: fact))
+            }
+        }
     }
 }

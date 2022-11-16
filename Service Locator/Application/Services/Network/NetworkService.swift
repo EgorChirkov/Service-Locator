@@ -7,6 +7,13 @@
 
 import Foundation
 
+enum NetworkError: Error {
+    case failedCreateUrl
+    case badStatusResponse
+    case notJsonDecode
+    
+}
+
 struct ResponseCatFacts: Decodable{
     var data: [String]
 }
@@ -37,5 +44,27 @@ class NetworkService {
             completionRequest(json, nil)
             
         }.resume()
+    }
+    
+    func requestData(with count: Int = 1) async throws -> [String]{
+        
+        guard let url = URL(string: String(format: api_str, count)) else {
+            throw NetworkError.failedCreateUrl
+        }
+        
+        let request = URLRequest(url: url)
+        
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
+            throw NetworkError.badStatusResponse
+        }
+        
+        guard let responseCatFacts = try? JSONDecoder().decode(ResponseCatFacts.self, from: data) else {
+            throw NetworkError.notJsonDecode
+        }
+        
+        return responseCatFacts.data
+        
     }
 }

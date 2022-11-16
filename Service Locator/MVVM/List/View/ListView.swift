@@ -28,13 +28,32 @@ struct ListView: View {
             }
             .navigationTitle(viewModel.localized.txtTitle)
             .toolbar {
-                    Button("Save List") {
-                        viewModel.onSaveList()
-                    }
+                Button{
+                    viewModel.onSaveList()
+                }label: {
+                    Text("Save")
                 }
+                
+//                Button {
+//                    viewModel.onClearAll()
+//                } label: {
+//                    Text("Clear")
+//                }
+            }
         }
         .onAppear{
             viewModel.onAppear()
+        }
+        .task {
+            if !viewModel.isSavedState{
+                try? await viewModel.fetchData()
+            }
+          
+        }
+        .refreshable {
+            if !viewModel.isSavedState{
+                try? await viewModel.fetchData()
+            }
         }
     }
 }
